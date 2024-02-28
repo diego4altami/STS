@@ -1,0 +1,6 @@
+package com.experis.diego;
+
+//Vehiculo es la clase superior y le hereda a auto
+public class Auto extends Vehiculo{
+
+}
