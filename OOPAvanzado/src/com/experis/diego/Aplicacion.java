@@ -15,6 +15,17 @@ public class Aplicacion {
 		
 		Bicicleta bici1 = new Bicicleta(2024, "Trek", "Madone","Roja", 10, "Ruta");
 		System.out.println("Cantidad de ruedas de bici: "+bici1.getCantidadRuedas());
+		
+		bici1.manejar();
+		automovil1.manejar();
+		
+		bici1.acelerar();
+		automovil1.acelerar();
+		
+		bici1.desacelerar();
+		automovil1.desacelerar();
+		
+		System.out.println(bici1);		
 	}
 
 }

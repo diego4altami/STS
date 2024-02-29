@@ -1,7 +1,7 @@
 package com.experis.diego;
 
 //Vehiculo es la clase superior y le hereda a auto
-public class Auto extends Vehiculo{
+public class Auto extends Vehiculo implements manejarVehiculo{
 	
 	private String placas;
 
@@ -34,5 +34,14 @@ public class Auto extends Vehiculo{
 		System.out.println("Y las placas son: "+placas);
 	}
 	
+	public void acelerar() {
+		velocidad+=2;
+		System.out.println("Estoy pisando el acelerador");
+	}
+	
+	public void desacelerar() {
+		velocidad-=2;
+		System.out.println("Estoy pisando el freno");
+	}
 	
 }
