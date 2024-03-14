@@ -33,7 +33,7 @@ public class ControladorAPI {
 	public Usuario apiCrearUsuario(@RequestParam("nombre") String nombre,
 								   @RequestParam("apellido") String apellido,
 								   @RequestParam("email") String email,
-								   @RequestParam("salon_id") Long salon_id) {
+								   @RequestParam("salon_id") Long salon_id) { // @RequestBody usuario nuevoUsuario
 		
 		
 		Usuario nuevo = new Usuario(nombre, apellido, email);
@@ -89,4 +89,9 @@ public class ControladorAPI {
 		return s.muestraSalones();
 	}
 	
+	@GetMapping("/hobbies/agregar/{usuario_id}/{hobby_id}")
+	public void agregarHobby(@PathVariable("usuario_id") Long usuario_id, @PathVariable("hobby_id") Long hobby_id) {
+		s.guardarUsuarioHobby(usuario_id, hobby_id);
+	}
+		
 }

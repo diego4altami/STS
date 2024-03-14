@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.diego.modelos.Direccion;
+import com.example.diego.modelos.Hobby;
 import com.example.diego.modelos.Salon;
 import com.example.diego.modelos.Usuario;
 import com.example.diego.repositorio.RepositorioDirecciones;
+import com.example.diego.repositorio.RepositorioHobbies;
 import com.example.diego.repositorio.RepositorioSalones;
 import com.example.diego.repositorio.RepositorioUsuarios;
 
@@ -24,6 +26,9 @@ public class Servicios {
 	
 	@Autowired
 	private RepositorioSalones repoSalones;
+	
+	@Autowired 
+	private RepositorioHobbies repoHobbies;
 	
 	//Me regrese una lista con todos los usuarios
 	public List<Usuario> todosUsuarios(){
@@ -67,5 +72,22 @@ public class Servicios {
 	public Salon muestraSalon(Long id) {
 		return repoSalones.findById(id).orElse(null);
 	}
+	
+	public Hobby muestraHobby(Long id) {
+		return repoHobbies.findById(id).orElse(null);
+	}
+	
+	public void guardarUsuarioHobby(Long usuario_id, Long hobby_id) {
+		//Obtenemos el objeto de usuario y hobby
+		Usuario miUsuario = buscarUsuario(usuario_id);
+		Hobby miHobby = muestraHobby(hobby_id);
+		miUsuario.getHobbies().add(miHobby);
+		
+		repoUsuarios.save(miUsuario);
+		
+	}
+	
+	
+	
 	
 }
